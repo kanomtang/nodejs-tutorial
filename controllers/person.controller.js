@@ -21,8 +21,14 @@ exports.read = function (req, res) {
     })
 }
 
-exports.update = function (req,res) {
-    Person.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, person) {
+exports.update = function (req, res) {
+    Person.findByIdAndUpdate(req.params.id, { $set: req.body }, function (err, person) {
         res.send('Person updated.');
     });
+}
+
+exports.delete = function (req, res) {
+    Person.findByIdAndRemove(req.params.id, function (err, person) {
+        res.send('Delete person succcessfully')
+    })
 }
