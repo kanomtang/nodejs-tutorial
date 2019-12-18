@@ -20,3 +20,9 @@ exports.read = function (req, res) {
         res.send(person);
     })
 }
+
+exports.update = function (req,res) {
+    Person.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, person) {
+        res.send('Person updated.');
+    });
+}
